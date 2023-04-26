@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Update Task</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Task</th>
+        <th>Days</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.task}"></td>
+        <td th:text="${task.days}"></td>
+    </tr>
+</table>
+<form class="Form" method="post" action="/tasks/partiallyUpdate/{id}">
+    <label>ID:</label>
+    <input class="inputForm" type="number" name="id"><br>
+    <label>Task:</label>
+    <input class="inputForm" type="text" name="task"><br>
+    <label>Days:</label>
+    <input class="inputForm" type="number" name="days"><br>
+    <input class="inputUpdate" type="submit" value="Update Task">
+</form>
+<a href="/tasks/list" class="backButton">Main Page</a>
+<a href="/tasks/add/task" class="addButton">Add Task</a>
+<a href="/tasks/delete/task" class="deleteButton">Delete Task</a>
+</body>
+</html>
